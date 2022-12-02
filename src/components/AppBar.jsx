@@ -1,4 +1,5 @@
 import Navigation from './Navigation';
+import AuthNav from './AuthNav';
 
 const styles = {
   header: {
@@ -14,6 +15,7 @@ export default function AppBar() {
   return (
     <header style={styles.header}>
       <Navigation />
+      <AuthNav />
       {/* {isLoggedIn ? <UserMenu /> : <AuthNav />} */}
     </header>
   );
