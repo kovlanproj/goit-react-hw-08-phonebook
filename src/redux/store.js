@@ -10,7 +10,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
-import { authReducer } from './auth/auth-slice';
+import authReducer from './auth/auth-slice';
 
 const middleware = [
   ...getDefaultMiddleware({
