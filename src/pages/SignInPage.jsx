@@ -17,16 +17,13 @@ import Copyright from 'components/Copyright';
 
 const theme = createTheme();
 
-export default function Register() {
+export default function SignIn() {
   const dispatch = useDispatch();
-  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
-      case 'name':
-        return setName(value);
       case 'email':
         return setEmail(value);
       case 'password':
@@ -36,13 +33,13 @@ export default function Register() {
     }
   };
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    dispatch(authOperations.register({ name, email, password }));
-    setName('');
+  const handleSubmit = event => {
+    event.preventDefault();
+    dispatch(authOperations.logIn({ email, password }));
     setEmail('');
     setPassword('');
   };
+
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -59,7 +56,7 @@ export default function Register() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Register
+            Sign in
           </Typography>
           <Box
             component="form"
@@ -67,17 +64,6 @@ export default function Register() {
             noValidate
             sx={{ mt: 1 }}
           >
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="name"
-              label="Name"
-              name="name"
-              autoComplete="Name"
-              autoFocus
-              onChange={handleChange}
-            />
             <TextField
               margin="normal"
               required
@@ -106,12 +92,12 @@ export default function Register() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Register
+              Sign In
             </Button>
             <Grid container>
               <Grid item>
-                <Link href="/login" variant="body2">
-                  {'Already have an account? Sign in'}
+                <Link href="/register" variant="body2">
+                  {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
             </Grid>
