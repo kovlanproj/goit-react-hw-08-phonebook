@@ -14,9 +14,9 @@ import { useDeleteContactMutation } from 'redux/contacts/contactsSlice';
 export default function ContactsList({ contacts }) {
   const [deleteContact, { isLoading: isDeleting }] = useDeleteContactMutation();
   return (
-    <Box sx={{ flexGrow: 1, maxWidth: 752 }}>
+    <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={10}>
           <List>
             {contacts.map(({ id, name, number }) => (
               <ListItem

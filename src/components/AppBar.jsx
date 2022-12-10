@@ -1,4 +1,6 @@
 import { useSelector } from 'react-redux';
+import Box from '@mui/material/Box';
+
 import Navigation from './Navigation';
 import AuthNav from './AuthNav';
 import UserMenu from './UserMenu';
@@ -16,9 +18,9 @@ const styles = {
 export default function AppBar() {
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
   return (
-    <header style={styles.header}>
+    <Box container style={styles.header}>
       <Navigation />
       {isLoggedIn ? <UserMenu /> : <AuthNav />}
-    </header>
+    </Box>
   );
 }

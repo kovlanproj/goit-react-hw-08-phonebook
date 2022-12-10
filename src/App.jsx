@@ -3,7 +3,6 @@ import { useEffect, Suspense, lazy } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Toaster } from 'react-hot-toast';
 import authOperations from './redux/auth/auth-operations';
-// import Container from 'components/Container/Container';
 import Container from '@mui/material/Container';
 import AppBar from 'components/AppBar';
 import PrivateRoute from './components/PrivateRoute';
@@ -25,7 +24,7 @@ export default function App() {
   return (
     <Container>
       {isFetchingCurrentUser ? (
-        <h1>Показываем React Skeleton</h1>
+        <h1>Show React Skeleton</h1>
       ) : (
         <>
           <AppBar />
@@ -40,9 +39,6 @@ export default function App() {
               <PublicRoute path="/login" restricted>
                 <LoginPage />
               </PublicRoute>
-
-              {/* <Route path="/register" component={RegisterPage} />
-        <Route path="/login" component={LoginPage} /> */}
               <PrivateRoute path="/contacts">
                 <ContactsPage />
               </PrivateRoute>

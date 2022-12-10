@@ -18,7 +18,7 @@ export const Contacts = () => {
   };
 
   return (
-    <Box sx={{ mt: 1 }}>
+    <Box sx={{ flexGrow: 1 }}>
       <SearchForm />
       {isFetching && <p>Loading...</p>}
 
