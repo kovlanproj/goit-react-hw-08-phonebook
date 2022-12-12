@@ -8,6 +8,7 @@ import AppBar from 'components/AppBar';
 import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
 import authSelectors from 'redux/auth/auth-selectors';
+import { routes } from 'routes';
 
 const RegisterPage = lazy(() => import('./pages/RegisterPage'));
 const LoginPage = lazy(() => import('./pages/SignInPage'));
@@ -21,6 +22,8 @@ export default function App() {
     dispatch(authOperations.fetchCurrentUser());
   }, [dispatch]);
 
+  const { home, contacts, login, register } = routes;
+
   return (
     <Container>
       {isFetchingCurrentUser ? (
@@ -30,16 +33,16 @@ export default function App() {
           <AppBar />
           <Switch>
             <Suspense fallback={<p>Loading...</p>}>
-              <Route exact path="/">
-                <Redirect to="/contacts" />
+              <Route exact path={home}>
+                <Redirect to={contacts} />
               </Route>
-              <PublicRoute path="/register" restricted>
+              <PublicRoute path={register} restricted>
                 <RegisterPage />
               </PublicRoute>
-              <PublicRoute path="/login" restricted>
+              <PublicRoute path={login} restricted>
                 <LoginPage />
               </PublicRoute>
-              <PrivateRoute path="/contacts">
+              <PrivateRoute path={contacts}>
                 <ContactsPage />
               </PrivateRoute>
             </Suspense>

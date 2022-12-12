@@ -1,5 +1,7 @@
+import { RouteSharp } from '@mui/icons-material';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { routes } from 'routes';
 
 const styles = {
   link: {
@@ -18,7 +20,7 @@ export default function AuthNav() {
   return (
     <div>
       <NavLink
-        to="/register"
+        to={routes.register}
         exact
         style={styles.link}
         activeStyle={styles.activeLink}
@@ -26,7 +28,7 @@ export default function AuthNav() {
         Register
       </NavLink>
       <NavLink
-        to="/login"
+        to={routes.login}
         exact
         style={styles.link}
         activeStyle={styles.activeLink}
