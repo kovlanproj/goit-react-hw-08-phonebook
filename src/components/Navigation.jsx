@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 import authSelectors from '../redux/auth/auth-selectors';
 import { routes } from 'routes';
 
-
 const styles = {
   link: {
     display: 'inline-block',
@@ -25,7 +24,7 @@ export default function Navigation() {
     <nav>
       {isLoggedIn && (
         <NavLink
-          to={ routes.contacts}
+          to={routes.contacts}
           exact
           style={styles.link}
           activeStyle={styles.activeLink}
